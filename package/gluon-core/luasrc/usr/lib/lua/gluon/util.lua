@@ -201,7 +201,7 @@ local function get_wlan_mac_from_driver(uci, radio, vif)
 
 	local i = 1
 	for addr in get_addresses(uci, radio) do
-		if addr:lower() ~= primary then
+		if addr:lower():sub(-9) ~= primary:sub(-9) then
 			if i == vif then
 				return addr
 			end
